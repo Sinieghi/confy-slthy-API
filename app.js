@@ -47,17 +47,6 @@ app.use(cookieParse(process.env.JWT_SECRET));
 app.use(express.static("./public"));
 app.use(fileUpload());
 
-//routers
-app.get("/", (req, res) => {
-  res.send("API");
-});
-//para testar o cookie
-app.get("/api/v1", (req, res) => {
-  // console.log(req.cookies);
-  console.log(req.signedCookies);
-  res.send("API");
-});
-
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productRouter);
